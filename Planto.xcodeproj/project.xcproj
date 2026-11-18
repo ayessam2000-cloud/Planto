@@ -19,6 +19,7 @@
         { "path": "<PRODUCTS>/Planto.app", "id": "000000000000000000000120", "type": "wrapper.application", "index": false },
       ],
     },
+    { "kind": "folder", "path": "Models", "target-membership": [ "Planto" ] },
   ],
   "targets": [
     {
