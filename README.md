@@ -22,7 +22,7 @@ Planto follows the **MVVM (Model-View-ViewModel)** architecture to keep the code
 ## Project Structure
 
 ```text
-MyApp/
+Planto/
 ├── MyApp.swift
 ├── Models/
 │   └── Plant.swift
@@ -62,5 +62,5 @@ MyApp/
 
 ---
 
-Made by **Aya Essam** �
-�
+
+

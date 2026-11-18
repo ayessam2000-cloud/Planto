@@ -22,7 +22,10 @@ final class NotificationManager {
         let trigger: UNNotificationTrigger
         switch plant.days {
         case "Every day":
-            trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            var comps = DateComponents()
+            comps.hour = 9
+            comps.minute = 41
+            trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: true)
         case "Every 2 days":
             trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2 * 86_400, repeats: true)
         case "Every 3 days":
