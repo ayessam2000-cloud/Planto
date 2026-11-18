@@ -28,6 +28,7 @@ class PlantsViewModel: ObservableObject {
     private enum Keys {
         static let plants = "savedPlants"
         static let started = "started"
+        static let lastReset = "lastReset"
     }
 
     init() {
@@ -36,6 +37,7 @@ class PlantsViewModel: ObservableObject {
             plants = saved
         }
         started = defaults.bool(forKey: Keys.started)
+        resetIfNewDay()
     }
 
     private func save() {
@@ -56,8 +58,21 @@ class PlantsViewModel: ObservableObject {
     var progress: Double {
         plants.isEmpty ? 0 : Double(doneCount) / Double(plants.count)
     }
-
+    // النباتات اللي لسا ما انسقت فوق، والمكتملة تحت
+    var sortedPlants: [Plant] {
+        plants.filter { !$0.isDone } + plants.filter { $0.isDone }
+    }
+    // إذا اليوم جديد، بترجّع كل ✓ فاضية
+    func resetIfNewDay() {
+        let today = Calendar.current.startOfDay(for: Date())
+        if let last = defaults.object(forKey: Keys.lastReset) as? Date,
+           Calendar.current.isDate(last, inSameDayAs: today) { return }
+        for i in plants.indices { plants[i].isDone = false }
+        defaults.set(today, forKey: Keys.lastReset)
+        save()
+    }
     // MARK: Actions
+    
     func add(_ plant: Plant) {
         plants.append(plant)
         save()

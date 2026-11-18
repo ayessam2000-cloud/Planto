@@ -13,7 +13,7 @@ struct PlantsRootView: View {
                 AllDoneView(onAdd: { viewModel.sheet = .add })
             } else {
                 PlantsListView(
-                    plants: viewModel.plants,
+                    plants: viewModel.sortedPlants,
                     doneCount: viewModel.doneCount,
                     progress: viewModel.progress,
                     onToggle: viewModel.toggle,

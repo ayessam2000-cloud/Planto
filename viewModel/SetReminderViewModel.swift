@@ -13,7 +13,8 @@ final class SetReminderViewModel: ObservableObject {
     // الخيارات اللي بتظهر بالقوائم
     let rooms = ["Bedroom", "Living Room", "Kitchen", "Balcony", "Bathroom"]
     let lights = ["Full sun", "Partial sun", "Low light"]
-    let wateringDays = ["Every day", "Every 2 days", "Every 3 days", "Weekly"]
+    let wateringDays = ["Every day", "Every 2 days", "Every 3 days",
+                        "Once a week", "Every 10 days", "Every 2 weeks"]
     let waterAmounts = ["20-50 ml", "50-100 ml", "100-200 ml", "200-300 ml"]
 
     private let existing: Plant?

@@ -30,7 +30,11 @@ final class NotificationManager {
             trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2 * 86_400, repeats: true)
         case "Every 3 days":
             trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3 * 86_400, repeats: true)
-        default: // Weekly
+        case "Every 10 days":
+            trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10 * 86_400, repeats: true)
+        case "Every 2 weeks":
+            trigger = UNTimeIntervalNotificationTrigger(timeInterval: 14 * 86_400, repeats: true)
+        default: // Once a week
             trigger = UNTimeIntervalNotificationTrigger(timeInterval: 7 * 86_400, repeats: true)
         }
 
